@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio-fiap</title>
+    <link rel="stylesheet" href="./assets/css/padrao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./assets/Js/loader.js"></script>
+</head>
+
+<body>
+
+    <div class ="loader">
+        <div class = "spin"></div>
+    </div>
+
+    <main class="hide">
+        <nav>
+            <div id="hamburguer">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <ul id="menu" class="menu-show">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#textotibia">
+                        <i class="fa-solid fa-user-secret"></i>
+                        Tibia
+                    </a>
+                </li>
+                <li>
+                    <a href="#textocod">
+                        <i class="fa-solid fa-code"></i>
+                        COD
+                    </a>
+                </li>
+                <li>
+                    <a href="#section-budged">
+                        <i class="fa-solid fa-coins"></i>
+                        Orçamento
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    
+        <header>
+            <div id ="textoinicio">
+                <div class = "Logo_inicial">
+                    <h1 class = "logo_inicial"> Skyline Games</h1>  
+                </div>
+        </div>
+            <div class = "nomes">
+                <h2 class = "textoanimado"> Gabriel Freitas & Thiago Marques</h2>
+            </div>
+        </header>
+        <section class="section_presentation">
+            <div class="fundotibia">
+                <div id ="textotibia">
+                    <h1 class = "texto_tibia">Tibia foi um dos primeiros MMORPG com interface gráfica do mundo, lançado em 1997. <br>A sua
+                        produção, no entanto, começou em 1995, quando três estudantes de programação <br>decidiram criar
+                        um projeto de RPG on-line, usando o potencial da Internet para angariar<br> jogadores. O objetivo
+                        deles era criar um RPG com interface gráfica, diferente dos projetos de<br>texto que eram populares
+                        na época.
+                    </h1>
+                    <a href="#textoinicio">
+                    </a>
+                    <img class = "logotibia" src="./assets/imagens/Tibialogo.png" alt="logo">
+                </div>
+            </div>
+        </section>
+        <section class="cod">  
+            <div class="fundocod">
+                <div id ="textocod">
+                    <a href="#textoinicio">
+                    </a>
+                    <h1 class = "texto_cod"> A franquia Call of Duty é muito bem conhecida por todos os seus anos de consolidação no mercado de
+                        jogos digitais, sendo o primeiro dos jogos lançados em 2003, porém a franquia começou a se popularizar 
+                        com a chegada da nova geração de consoles da época (Playstion 3 e Xbox 360) com o jogo Call of Duty 4
+                        e com esse lançamento a franquia nunca >mais seria esquecida no ramo de fps sendo até hoje um dos jogos
+                        de fps arcade mais consagradas no mundo.</h1>
+                    <img class = "codlogo" src="./assets/imagens/cod cinza.png" alt="logocod">
+                </div>
+            </div>
+        </section>
+
+        <section id="section-projects">
+            <h3>Historia dos Consoles</h3>
+            <ul>
+                <li>
+                    <div class="card-image"><img src="./assets/imagens/aula/ps4 controle.jpg" alt=""></div>
+                    <div class="card-info">
+                        <h1 class = "playstation-titulo">Playstation</h1>
+                        <h2 class = "playstation-texto">Tudo começou lá atrás, em 1995, com o lançamento do primeiro PlayStation, ou PSOne...</h2>
+                        <a href="#" class="playstation_saibamais">Saiba Mais</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="card-image"><img src="./assets/imagens/aula/xbox controle.jpg" alt=""></div>
+                    <div class="card-info">
+                        <h1 class = "xbox-titulo">XBox</h1>
+                        <h2 class = "xbox-texto">A história do Xbox teve sua origem em uma empresa de tecnologia chamada de DirectX, que pertencia a Microsoft...</h2>
+                        <a href="#" class="xbox_saibamais">Saiba Mais</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="card-image"><img src="./assets/imagens/aula/setup.jpg" alt=""></div>
+                    <div class="card-info">
+                        <h1 class = "pc-titulo">Computador</h1>
+                        <h2 class = "pc-texto">Foi em 1973 que o primeiro protótipo para o PC como o conhecemos hoje surgiu...</h2>
+                        <p></p>
+                        <a href="#" class="pc_saibamais">Saiba Mais</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="section-budged">
+            <form action="#">
+                <h1 class = "orcamento-titulo">Orçamento de games</h1>
+                <label for="qtde">Quantidade de jogos</label>
+                <input type="number" id="qtde" min="1" value="1">
+                <label for="js">Precisa de controle?</label>
+                <input type="checkbox" id="js">
+                <label for="layout">Precisa de volante?</label>
+                <div>
+                    <input type="radio" id="layout-sim" name="layout">
+                    <label for="layout-sim">sim, preciso</label>
+                    <input type="radio" id="layout-nao"name="layout">
+                    <label for="layout-nao">não, já tenho</label>
+                </div>
+                <label for="prazo">Prazo</label>
+                <input type="range" id="prazo" min="1" max="10">
+                <output id="preco">R$ 150,00</output>
+            </form>
+        </section>
+    </main>
+
+    <script src ="./assets/Js/script.js"></script>
+    <script src ="./assets/Js/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,600&family=Open+Sans:ital,wght@1,500&display=swap');
+
+* { /*Serve para tirar a margem padrão do navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*O tamanho será correto, sem ficar estourado e muda a 
+    maneira que o HTML irá pensar sobre a imagem*/
+}
+:root { /*Serve para declarar variaveis, podemos criar variavel de cor, texto, fonte*/
+    --text-primary: #fff;
+    --text-secundary: black;
+    --font-heading: 'Poppins';
+    --font-default: 'monteserrat';
+}
+html {  /* codigo secreto para deixar a fonte padrão*/
+    font-size: 62.5%;
+}
+body{
+    font-family: var(--font-default);
+    color: var(--text-primary);
+}
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.spin{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 16px solid #999;
+    border-top: 16px solid #6A3093;
+    animation: spin 2s linear infinite;
+}
+.hide{
+    display: none;
+}
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#menu {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 2rem;
+}
+#hamburguer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+#hamburguer .linha{
+    width: 100%;
+    height: .5rem;
+    background-color: white;   
+    box-shadow: 0 .2rem .2rem #000; 
+    border-radius: 5rem;
+}
+nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: fixed;
+    right: 0rem;
+    background: linear-gradient(90deg, #d2d4d6, #a394a0 50% );
+    height: 30vh;
+    width: 15rem;
+    z-index: 9;
+    transition: 0.5s;
+}
+#menu li {
+    list-style: none;
+}
+#menu a {
+    text-decoration: none;
+    color: var(--text-secundary);
+}
+#menu a:hover {
+    color: green;
+}
+.menu-show {
+    right: -20rem;
+}
+header {
+    display: flex; /*criar um display para as imagens ficarem em um padrão de distanciamento*/
+    align-items: flex-start; /*Alinhando os componentes*/
+    gap: 1rem; /*Espaço dos elementos*/
+    flex-direction: column; /* alinhar as imagens uma embaixo da outra*/
+    height: 100vh; /* 100% da altura da imagem*/
+    overflow: hidden;/*Serve para esconder quando a imagem é maior que a pagina*/
+    position: relative; /*Precisa adicionar porque tem o position absolute no before*/
+}
+header h1 {
+    font-size: clamp (2rem, 5vw, 5rem);
+}
+header::before{ /*será inserido atnes de qualquer coisa*/
+    content:'';
+    width: 115%;
+    height: 100%;
+    background-image: url(../imagens/308140.jpg); /*Imagem de fundo*/
+    background-size: 90% 100%;
+    position: absolute;
+    top: 0; /*eixo x*/
+    left: 0;/*eixo y*/
+    z-index: -1; /*eixo Z para trazer a foto para frente*/
+    transform: scale(1.5);
+    animation:scale-in-top .6s cubic-bezier(.25,.46,.45,.94) both
+}
+@keyframes scale-in-top {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 1;
+    }
+  }
+h1.logo_inicial { /* Inicio onde tá escrito Skyline Games*/
+    font-family: 'montserrat'; /*Fonte exportada*/
+    font-size: 10rem; /*tamanho da fonte */
+    color: #FFF; /*Cor da fonte */    
+    padding-left: 60rem;
+    padding-top: 5rem;
+}
+@keyframes animacao-texto { /* Formato da animaçao do texto Thiago e Gabriel*/
+    0% {
+      color: red;
+      transform: translateX(0);
+    }
+    25% {
+        color: rgb(199, 34, 147);
+        transform: translateX(20px);
+      }
+    50% {
+      color: blue;
+      transform: translateX(20px);
+    }
+    75% {
+        color: rgb(232, 229, 36);
+        transform: translateX(20px);
+      }
+    100% {
+      color: green;
+      transform: translateX(0);
+    }
+}
+h2.textoanimado { /*Animação do texto Thiago e Gabriel*/
+    animation-name: animacao-texto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    font-family: var(--font-default);
+    font-size: 4rem;
+    color: var(--text-primary);
+}
+.nomes {
+    padding-left: 65%;
+    padding-top: 35%;
+}
+
+/*------------------------------------------- TIBIA -------------------------------------------*/
+
+.fundotibia{ /*Fundo tibia*/
+    color: var(--text-secundary); /* Vac = variavel que criamos | --text-secundary = formato que criamos na variavel*/
+    display: flex; /*define o tipo de exibição do elemento. No caso deste código, a exibição é definida como flex, que é um valor do CSS para criar um contêiner flexível.*/
+    background-image: url('../imagens/fundoeditado.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* altura da imagem */
+    position: relative;
+}
+.logotibia { /*Imagem do logo Tibia*/
+    position: absolute; /* Define a posição como absoluta */
+    top: 15%; /* Define a distância do topo como 50% da altura do elemento pai */
+    left: 50%; /* Define a distância da esquerda como 50% da largura do elemento pai */
+    transform: translate(-50%, -50%); /* Move o elemento para cima e para a esquerda em 50% de sua própria largura e altura */
+    height: 20rem; /* Define a altura */
+    width: 45rem; /* Define a largura */
+}
+h1.texto_tibia{ /*Configurando a fonte e a localização do texto p na pagina do tibia*/
+    display: flex; 
+    flex-direction: column;
+    padding-left: 50rem;
+    padding-right: 10rem;
+    padding-top: 30rem;
+    font-size: 2.5rem;
+    font-family: 'Chakra Petch'; /*Fonte exportada*/
+    color: white;
+    color: rgb(172, 172, 34);
+}
+span { /*Configurando a fonte e a localização do texto span*/
+    font-family: var(--font-default);
+    font-size: 4rem;
+    color: var(--text-primary);
+    padding-left: 120rem;
+    padding-top: 55rem;
+}
+
+/*---------------------------------------- CALL OF DUTY ----------------------------------------*/
+
+.fundocod{ /* Imagem de fundo COD*/
+    color: var(--text-secundary); /* Vac = variavel que criamos | --text-secundary = formato que criamos na variavel*/
+    display: flex; /*define o tipo de exibição do elemento. No caso deste código, a exibição é definida como flex, que é um valor do CSS para criar um contêiner flexível.*/
+    background-image: url('../imagens/448059-photoaidcom-darken.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* altura da imagem */
+    position: relative;
+}
+.codlogo { /*Logo do COD*/
+    position: absolute; /* Define a posição como absoluta */
+    top: 20%; /* Define a distância do topo como 50% da altura do elemento pai */
+    left: 50%; /* Define a distância da esquerda como 50% da largura do elemento pai */
+    transform: translate(-55%, -50%); /* Move o elemento para cima e para a esquerda em 50% de sua própria largura e altura */
+    height: 22rem; /* Define a altura */
+    width: 70rem; /* Define a largura */
+    filter: drop-shadow(2rem 2.5rem 0.5rem #222); /* Aplica sombra na imagem*/
+}
+h1.texto_cod{   /*Texto do COD*/
+    display: flex; 
+    flex-direction: column;
+    padding-left: 50rem;
+    padding-right: 10rem;
+    padding-top: 30rem;
+    font-size: 2.5rem;
+    font-family: 'Chakra Petch'; /*Fonte exportada*/
+    color: white;
+}
+
+/*------------------------------------------- Cards -------------------------------------------*/
+
+.section-presentation div{
+    display: flex;
+    flex-direction: column;
+}
+#section-projects{
+    background-color: rgb(0, 0, 0);
+    background-image: url('../imagens/aula/fundo_neutro.jpg');
+    bottom: 100%;
+    height: 100vh; /* altura da imagem */
+}
+#section-projects ul{
+    display: flex;
+    gap: 30%;
+    justify-content: space-around;
+    margin-top: 0%;
+    position: absolute;
+    top: 335%;
+    left: 20%;
+    transform: translate(10%, 0%);
+}
+#section-projects li{
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+}
+.card-image img{/*Responsável pelas imagens no CARD*/
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    top: 10rem;
+    filter: drop-shadow(1.5rem 1.5rem 1.2rem #000000); /* Aplica sombra na imagem*/
+}
+.card-info{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity .5s, bottom .5s;
+}
+#section-projects li:hover .card-info{
+    opacity: 1;
+    bottom: 20%;
+}
+h3{ /*Titulo PROJETOS*/
+    font-size: 8rem;
+    text-align: center;
+    padding-top: 5%;
+}
+/*-------------------------------------- CARD PLAYSTATION --------------------------------------*/
+
+h1.playstation-titulo{ /*Titulo Playstation dentro do CARD*/
+    margin: 2rem 5rem 8rem;
+    font-size: 4rem;
+    text-align: center;
+}
+h2.playstation-texto{ /*Historia playstation*/
+    font-size:2.3rem;
+    text-align: center;
+    margin: 0rem 0rem 3rem;
+    color: #fff;
+}
+.playstation_saibamais{ /*Botão saiba mais playstation*/
+        background: linear-gradient(90deg, #e4dede, #ffffffb7); /*Serve para dizer que é linear e a cor do botao */
+        padding: 1rem 2rem;
+        border-radius: 7px;
+        font-size: 2rem;
+        text-align: center;
+        text-decoration: none;
+        position: relative; /* Serve para mover o botão */
+        left: 20%; /* Irá andar para direita */ 
+        bottom: 0rem; /* Irá mover para cima */
+        font-family: 'Chakra Petch'; /*Fonte exportada*/
+        width: 16rem;
+}
+/*----------------------------------------- CARD XBOX -----------------------------------------*/
+
+h1.xbox-titulo{ /*Titulo XBOX dentro do CARD*/
+    margin: 2rem 5rem 5rem;
+    font-size: 4rem;
+    text-align: center;
+}
+h2.xbox-texto{ /*Historia XBOX*/
+    font-size:2.3rem;
+    text-align: center;
+    margin: 0rem 0rem 3rem;
+}
+.xbox_saibamais{ /*Botão saiba mais XBOX*/
+    background: linear-gradient(90deg, #393930, #f1ece8b7); /*Serve para dizer que é linear e a cor do botao */
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+    position: relative; /* Serve para mover o botão */
+    left: 20%; /* Irá andar para direita */ 
+    bottom: 0rem; /* Irá mover para cima */
+    font-family: 'Chakra Petch'; /*Fonte exportada*/
+    width: 16rem;
+}
+/*----------------------------------------- CARD PC --------------------------------------------*/
+
+h1.pc-titulo{ /*Titulo PC dentro do CARD*/
+    margin: 2rem 10% 20%;
+    font-size: 4rem;
+    text-align: center;
+}
+h2.pc-texto{ /*Historia PC*/
+    font-size:2.3rem;
+    text-align: center;
+    margin: 0rem 0rem 5rem;
+}
+.pc_saibamais{ /*Botão saiba mais PC */
+    background: linear-gradient(90deg, #b5b54a, #f1ece8b7); /*Serve para dizer que é linear e a cor do botao */
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+    position: relative; /* Serve para mover o botão */
+    left: 20%; /* Irá andar para direita */ 
+    bottom: 0rem; /* Irá mover para cima */
+    font-family: 'Chakra Petch'; /*Fonte exportada*/
+    width: 16rem;
+}
+
+/*----------------------------------------- ORÇAMENTO GAMES ----------------------------------------- */
+
+#section-budged{
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imagens/aula/ds3.png');
+    background-size: cover;
+}
+#section-budged form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    background-color: #8C8C8C99;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    width: 35%;
+    height: 25%;
+    padding: 5rem;
+    transform: translate(100%, 130%);
+    font-size: 1.7rem;
+}
+#section-budged h1 {
+    position:absolute;
+    left: 30%;
+}
+#section-budged form output{
+    grid-column: 2;
+}
+h1.orcamento-titulo {
+    font-size: 3rem;
+}
+
+/*MEDIA QUERY*/
+
+@media screen and (max-width: 980px) {
+
+    /*----------------------------------------------PÁGINA INICIAL----------------------------------------------*/
+    h1.logo_inicial { /* Inicio onde tá escrito Skyline Games*/
+        font-family: 'montserrat'; /*Fonte exportada*/
+        font-size: 5rem; /*tamanho da fonte */
+        color: #FFF; /*Cor da fonte */    
+        padding-left: 30rem;
+        padding-top: 5rem;
+    }
+    h2.textoanimado { /*Animação do texto Thiago e Gabriel*/
+        animation-name: animacao-texto;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        font-family: var(--font-default);
+        font-size: 2rem;
+        color: var(--text-primary);
+    }
+    .nomes {
+        padding-left: 65%;
+        padding-top: 68%;
+    }
+
+    /*------------------------------------------- TIBIA -------------------------------------------*/
+    .logotibia { /*Imagem do logo Tibia*/
+        position: absolute; /* Define a posição como absoluta */
+        top: 15%; /* Define a distância do topo como 50% da altura do elemento pai */
+        left: 50%; /* Define a distância da esquerda como 50% da largura do elemento pai */
+        transform: translate(-50%, -50%); /* Move o elemento para cima e para a esquerda em 50% de sua própria largura e altura */
+        height: 20rem; /* Define a altura */
+        width: 45rem; /* Define a largura */
+    }
+    h1.texto_tibia{ /*Configurando a fonte e a localização do texto p na pagina do tibia*/
+        display: flex;
+        padding-top: 30rem;
+        padding-left: 17rem;
+        font-size: 2rem;
+        font-family: 'Chakra Petch';   
+        text-align:center;
+        color: rgb(172, 172, 34);
+    }
+    /*---------------------------------------- CALL OF DUTY ----------------------------------------*/
+    .codlogo { /*Logo do COD*/
+        position: absolute; /* Define a posição como absoluta */
+        top: 20%; /* Define a distância do topo como 50% da altura do elemento pai */
+        left: 53%; /* Define a distância da esquerda como 50% da largura do elemento pai */
+        transform: translate(-55%, -50%); /* Move o elemento para cima e para a esquerda em 50% de sua própria largura e altura */
+        height: 17rem; /* Define a altura */
+        width: 55rem; /* Define a largura */
+        filter: drop-shadow(2rem 2.5rem 0.5rem #222); /* Aplica sombra na imagem*/
+    }
+    h1.texto_cod{   /*Texto do COD*/
+        font-family: 'Chakra Petch'; /*Fonte exportada*/
+        font-size: 2rem; /*tamanho da fonte */
+        color: #FFF; /*Cor da fonte */   
+        display: flex; 
+        left: 100px;
+        transform: translate(-20%, 0%); /*Serve para transformar seu texto na posição atual*/
+    }
+
+    /*----------------------------------------------CARDS----------------------------------------------*/
+    #section-projects ul{
+        flex-direction: flex;
+        display: flex;
+        gap: 10%;
+        justify-content: space-around;
+        margin: auto;
+        position: absolute;
+        top: 340%;
+        left: 15%;
+        transform: translate(10%, 0%);        
+    }
+    .large-only{
+        display: none;
+    }
+    .card-image img{/*Responsável pelas imagens no CARD*/
+        width: 200px;
+        height: 350px;
+        border-radius: 10px;
+        top: 0rem;
+        filter: drop-shadow(1.5rem 1.5rem 1.2rem #000000); /* Aplica sombra na imagem*/
+        display: flex;
+    }
+    #section-projects h3{ /*Titulo PROJETOS*/
+        font-size: 5rem;
+        text-align: center;
+        padding-top: 5%;
+    }
+    /*-------------------------------------- CARD PLAYSTATION --------------------------------------*/
+
+    h1.playstation-titulo{ /*Titulo Playstation dentro do CARD*/
+        font-size:3rem;
+        text-align: center;
+        margin: 0rem 0rem 0rem;
+        transform: translate(0%, 0%);
+        color: #fff;
+    }
+    h2.playstation-texto{ /*Historia playstation*/
+        font-size:2.5rem;
+        text-align: center;
+        transform: translate(0%, 20%);
+        padding: 3%, 5%, 10%;
+        color: #fff;
+    }
+    .playstation_saibamais{ /*Botão saiba mais playstation*/
+            background: linear-gradient(90deg, #e4dede, #ffffffb7); /*Serve para dizer que é linear e a cor do botao */
+            padding: 1rem 3rem;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            text-align: center;
+            text-decoration: none;
+            position: relative; /* Serve para mover o botão */
+            left: 13%; /* Irá andar para direita */ 
+            bottom: -3rem; /* Irá mover para cima */
+            font-family: 'Chakra Petch'; /*Fonte exportada*/
+            width: 15rem;
+    }
+    /*----------------------------------------- CARD XBOX -----------------------------------------*/
+
+    h1.xbox-titulo{ /*Titulo XBOX dentro do CARD*/
+        font-size:3rem;
+        text-align: center;
+        margin: 0rem 0rem 0rem;
+        transform: translate(0%, -85%);
+        color: #fff;
+    }
+    h2.xbox-texto{ /*Historia XBOX*/
+        font-size:1.9rem;
+        text-align: center;
+        transform: translate(0%, 10%);
+        padding: 3%, 5%, 10%;
+        color: #fff;
+    }
+    .xbox_saibamais{ /*Botão saiba mais XBOX*/
+        background: linear-gradient(90deg, #e4dede, #ffffffb7); /*Serve para dizer que é linear e a cor do botao */
+        padding: 1rem 3rem;
+        border-radius: 10px;
+        font-size: 1.3rem;
+        text-align: center;
+        text-decoration: none;
+        position: relative; /* Serve para mover o botão */
+        left: 13%; /* Irá andar para direita */ 
+        bottom: -3rem; /* Irá mover para cima */
+        font-family: 'Chakra Petch'; /*Fonte exportada*/
+        width: 15rem;
+    }
+    /*----------------------------------------- CARD PC --------------------------------------------*/
+
+    h1.pc-titulo{ /*Titulo PC dentro do CARD*/
+        font-size:3rem;
+        text-align: center;
+        margin: 0rem 0rem 0rem;
+        transform: translate(0%, -85%);
+        color: #fff;
+    }
+    h2.pc-texto{ /*Historia PC*/
+        font-size:1.9rem;
+        text-align: center;
+        transform: translate(0%, 10%);
+        padding: 3%, 5%, 10%;
+        color: #fff;
+    }
+    .pc_saibamais{ /*Botão saiba mais PC */
+        background: linear-gradient(90deg, #e4dede, #ffffffb7); /*Serve para dizer que é linear e a cor do botao */
+        padding: 1rem 3rem;
+        border-radius: 10px;
+        font-size: 1.3rem;
+        text-align: center;
+        text-decoration: none;
+        position: relative; /* Serve para mover o botão */
+        left: 13%; /* Irá andar para direita */ 
+        bottom: -3rem; /* Irá mover para cima */
+        font-family: 'Chakra Petch'; /*Fonte exportada*/
+        width: 15rem;
+    }
+    /*----------------------------------------- ORÇAMENTO GAMES ----------------------------------------- */
+    #section-budged{
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../imagens/aula/ds3.png');
+        background-size: cover;
+    }
+    #section-budged form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: start;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        background-color: #8C8C8C99;
+        backdrop-filter: blur(1px);
+        border-radius: 10px;
+        width: 35%;
+        height: 25%;
+        padding: 5rem;
+        transform: translate(100%, 150%);
+        font-size: 1.7rem;
+    }
+    #section-budged h1 {
+        position:absolute;
+        left: 10%;
+    }
+    #section-budged form output{
+        grid-column: 2;
+    }
+    h1.orcamento-titulo {
+        font-size: 3rem;
+    }
+}
+
